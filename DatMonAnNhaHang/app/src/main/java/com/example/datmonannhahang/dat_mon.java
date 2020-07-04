@@ -25,7 +25,7 @@ public class dat_mon extends AppCompatActivity {
     public static int selectedTab = 1;
 
     ListView lvMonchinh, lvMonkhaivi, lvLau, lvDouong;
-    String urlGetDataMonChinh = "http://localhost/nhahang/getdataMonChinh.php";
+    String urlGetDataMonChinh = "http://localhost/nhahang/getData.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +57,13 @@ public class dat_mon extends AppCompatActivity {
         tabHost.addTab(tab2);
 
         TabHost.TabSpec tab3 = tabHost.newTabSpec("tab3");
-        tab2.setContent(R.id.lau);
-        tab2.setIndicator("Lẩu");
+        tab3.setContent(R.id.lau);
+        tab3.setIndicator("Lẩu");
         tabHost.addTab(tab3);
 
         TabHost.TabSpec tab4 = tabHost.newTabSpec("tab4");
-        tab2.setContent(R.id.lau);
-        tab2.setIndicator("Đồ uống");
+        tab4.setContent(R.id.douong);
+        tab4.setIndicator("Đồ uống");
         tabHost.addTab(tab4);
     }
     private void getdataMonChinh(String url){
