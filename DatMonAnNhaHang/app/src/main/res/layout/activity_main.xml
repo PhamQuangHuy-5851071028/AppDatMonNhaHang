@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background1"
+
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/label1"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDatMonAn"
+        android:layout_width="260dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="300dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/datmonan"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSuaMonAn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnSuaMonAn"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <Button
+        android:id="@+id/btnSuaMonAn"
+        android:layout_width="260dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/suamonan"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnThanhToan"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/btnThanhToan"
+        app:layout_constraintTop_toBottomOf="@+id/btnDatMonAn" />
+
+    <Button
+        android:id="@+id/btnThanhToan"
+        android:layout_width="260dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/thanhtoan"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSuaMonAn" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/design_by_qhuypham"
+        android:textColor="@color/mauden"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnThanhToan" />
+
+    <pl.droidsonroids.gif.GifTextView
+        android:layout_width="229dp"
+        android:layout_height="229dp"
+        android:background="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/btnDatMonAn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

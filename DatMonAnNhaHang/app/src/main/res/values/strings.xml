@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ĐẶT MÓN ĂN NHÀ HÀNG PHẠM HUY</string>
+    <string name="label1">NHÀ HÀNG PHẠM HUY</string>
+    <string name="datmonan">Đặt món ăn</string>
+    <string name="suamonan">Sửa món ăn</string>
+    <string name="thanhtoan">Thanh toán</string>
+    <string name="design_by_qhuypham">Design by QHuyPham</string>
+</resources>
