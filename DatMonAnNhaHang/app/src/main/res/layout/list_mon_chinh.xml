@@ -14,7 +14,7 @@
         android:layout_width="161dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="TextView"
+        android:text="@string/txtMonAn"
         android:textSize="24sp" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="TextView"
+        android:text="@string/txtGia"
         android:textSize="24sp" />
 
     <ImageView
@@ -30,7 +30,8 @@
         android:layout_width="21dp"
         android:layout_height="20dp"
         android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/union_1" />
+        app:srcCompat="@drawable/union_1"
+        android:contentDescription="@string/imgTang" />
 
     <TextView
         android:id="@+id/txtSoLuong"
@@ -46,6 +47,7 @@
         android:layout_width="20dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/rectangle_17" />
+        app:srcCompat="@drawable/rectangle_17"
+        android:contentDescription="@string/imgGiam" />
 
 </LinearLayout>

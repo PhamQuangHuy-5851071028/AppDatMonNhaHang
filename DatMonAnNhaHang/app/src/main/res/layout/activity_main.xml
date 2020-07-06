@@ -10,51 +10,50 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="281dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-black"
+        android:gravity="center"
         android:text="@string/label1"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnDatMonAn"
         android:layout_width="260dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="256dp"
         android:background="@android:color/holo_orange_dark"
         android:text="@string/datmonan"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/btnSuaMonAn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnSuaMonAn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <Button
         android:id="@+id/btnSuaMonAn"
         android:layout_width="260dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/holo_orange_dark"
         android:text="@string/suamonan"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/btnThanhToan"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/btnThanhToan"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDatMonAn" />
 
     <Button
         android:id="@+id/btnThanhToan"
         android:layout_width="260dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/holo_orange_dark"
         android:text="@string/thanhtoan"
         android:textColor="@android:color/background_light"
@@ -68,7 +67,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/design_by_qhuypham"
         android:textColor="@color/mauden"
         android:textSize="18sp"
@@ -80,9 +79,12 @@
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="229dp"
         android:layout_height="229dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/btnDatMonAn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
