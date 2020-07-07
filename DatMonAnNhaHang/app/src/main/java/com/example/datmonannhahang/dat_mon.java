@@ -16,9 +16,12 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class dat_mon extends AppCompatActivity {
 
@@ -26,7 +29,10 @@ public class dat_mon extends AppCompatActivity {
     public static int selectedTab = 1;
 
     ListView lvMonchinh, lvMonkhaivi, lvLau, lvDouong;
-    String urlGetDataMonChinh = "http://172.17.0.238/nhahang/getdata.php";
+    String urlGetDataMonChinh = "http://192.168.1.46/nhahang/getdata.php";
+
+    ArrayList<MonChinh> arrayMonChinh;
+    MonAnAdapter monchinhAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,9 @@ public class dat_mon extends AppCompatActivity {
         lvMonkhaivi=findViewById(R.id.lvKhaiVi);
         lvLau=findViewById(R.id.lvLau);
         lvDouong=findViewById(R.id.lvDoUong);
+        arrayMonChinh = new ArrayList<>();
+        monchinhAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayMonChinh);
+        lvMonchinh.setAdapter(monchinhAdapter);
     }
 
     private void showTabHost() {
@@ -73,7 +82,19 @@ public class dat_mon extends AppCompatActivity {
                 null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Toast.makeText(dat_mon.this, response.toString(),Toast.LENGTH_LONG).show();
+                for(int i = 0; i<response.length(); i++){
+                    try {
+                        JSONObject object = response.getJSONObject(i);
+                        arrayMonChinh.add(new MonChinh(
+                                object.getInt("ID"),
+                                object.getString("TenMon"),
+                                object.getString("GiaBan")
+                                ));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    monchinhAdapter.notifyDataSetChanged();
+                }
             }
         },
                 new Response.ErrorListener() {
