@@ -26,13 +26,19 @@ import java.util.ArrayList;
 public class dat_mon extends AppCompatActivity {
 
     TabHost tabHost;
-    public static int selectedTab = 1;
 
+    public static int selectedTab=1;
     ListView lvMonchinh, lvMonkhaivi, lvLau, lvDouong;
-    String urlGetDataMonChinh = "http://192.168.1.46/nhahang/getdata.php";
+    String urlGetDataMonChinh = "http://172.17.4.252/nhahang/getDataMonChinh.php";
+    String urlGetDataKhaiVi = "http://172.17.4.252/nhahang/getDataKhaiVi.php";
+    String urlGetDataLau = "http://172.17.4.252/nhahang/getDataLau.php";
+    String urlGetDataDoUong = "http://172.17.4.252/nhahang/getDataDoUong.php";
 
-    ArrayList<MonChinh> arrayMonChinh;
-    MonAnAdapter monchinhAdapter;
+    public ArrayList<MonChinh> arrayMonChinh, arrayKhaiVi, arrayLau, arrayDoUong;
+    public MonAnAdapter monchinhAdapter, khaiviAdapter, lauAdapter, douongAdapter;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,9 @@ public class dat_mon extends AppCompatActivity {
         showTabHost();
         addViews();
         getdataMonChinh(urlGetDataMonChinh);
+        getdataKhaiVi(urlGetDataKhaiVi);
+        getdataLau(urlGetDataLau);
+        getdataDoUong(urlGetDataDoUong);
     }
 
     private void addViews() {
@@ -47,9 +56,26 @@ public class dat_mon extends AppCompatActivity {
         lvMonkhaivi=findViewById(R.id.lvKhaiVi);
         lvLau=findViewById(R.id.lvLau);
         lvDouong=findViewById(R.id.lvDoUong);
+
+        //Tab1
         arrayMonChinh = new ArrayList<>();
         monchinhAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayMonChinh);
         lvMonchinh.setAdapter(monchinhAdapter);
+
+        //Tab2
+        arrayKhaiVi = new ArrayList<>();
+        khaiviAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayKhaiVi);
+        lvMonkhaivi.setAdapter(khaiviAdapter);
+
+        //Tab3
+        arrayLau = new ArrayList<>();
+        lauAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayLau);
+        lvLau.setAdapter(lauAdapter);
+
+        //Tab4
+        arrayDoUong = new ArrayList<>();
+        douongAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayDoUong);
+        lvDouong.setAdapter(douongAdapter);
     }
 
     private void showTabHost() {
@@ -76,7 +102,9 @@ public class dat_mon extends AppCompatActivity {
         tab4.setIndicator("Đồ uống");
         tabHost.addTab(tab4);
     }
+
     private void getdataMonChinh(String url){
+        selectedTab=1;
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONArray>() {
@@ -101,6 +129,102 @@ public class dat_mon extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                     Toast.makeText(dat_mon.this, "Lỗi!", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    private void getdataKhaiVi(String url){
+        selectedTab=2;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for(int i = 0; i<response.length(); i++){
+                    try {
+                        JSONObject object = response.getJSONObject(i);
+                        arrayKhaiVi.add(new MonChinh(
+                                object.getInt("ID"),
+                                object.getString("TenMon"),
+                                object.getString("GiaBan")
+                        ));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                   khaiviAdapter.notifyDataSetChanged();
+                }
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(dat_mon.this, "Lỗi!", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    private void getdataLau(String url){
+        selectedTab=3;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for(int i = 0; i<response.length(); i++){
+                    try {
+                        JSONObject object = response.getJSONObject(i);
+                        arrayLau.add(new MonChinh(
+                                object.getInt("ID"),
+                                object.getString("TenMon"),
+                                object.getString("GiaBan")
+                        ));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    lauAdapter.notifyDataSetChanged();
+                }
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(dat_mon.this, "Lỗi!", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    private void getdataDoUong(String url){
+        selectedTab=4;
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
+                null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for(int i = 0; i<response.length(); i++){
+                    try {
+                        JSONObject object = response.getJSONObject(i);
+                        arrayDoUong.add(new MonChinh(
+                                object.getInt("ID"),
+                                object.getString("TenMon"),
+                                object.getString("GiaBan")
+                        ));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    douongAdapter.notifyDataSetChanged();
+                }
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(dat_mon.this, "Lỗi!", Toast.LENGTH_LONG).show();
                     }
                 }
         );

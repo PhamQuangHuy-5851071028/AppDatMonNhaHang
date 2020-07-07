@@ -2,52 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <CheckBox
-        android:id="@+id/cbChon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtMonAn"
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="@string/txtMonAn"
-        android:textSize="24sp" />
+        <CheckBox
+            android:id="@+id/cbChon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/txtGia"
-        android:layout_width="112dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="@string/txtGia"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/txtMonAn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/txtMonAn"
+            android:textSize="24sp" />
 
-    <ImageView
-        android:id="@+id/imgTang"
-        android:layout_width="21dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/union_1"
-        android:contentDescription="@string/imgTang" />
+        <TextView
+            android:id="@+id/txtGia"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/txtGia"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/txtSoLuong"
-        android:layout_width="26dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:textSize="24sp" />
+        <ImageView
+            android:id="@+id/imgGiam"
+            android:layout_width="20dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/imgGiam"
+            app:srcCompat="@drawable/rectangle_17" />
 
-    <ImageView
-        android:id="@+id/imgGiam"
-        android:layout_width="20dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/rectangle_17"
-        android:contentDescription="@string/imgGiam" />
+        <TextView
+            android:id="@+id/txtSoLuong"
+            android:layout_width="26dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imgTang"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/imgTang"
+            app:srcCompat="@drawable/union_1" />
+
+    </LinearLayout>
 
 </LinearLayout>

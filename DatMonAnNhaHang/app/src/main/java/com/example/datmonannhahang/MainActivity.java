@@ -6,10 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TabHost;
 
 public class MainActivity extends AppCompatActivity {
-
     Button btnDatmonan, btnSuamonan, btnThanhtoan;
+    TabHost tabHost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
         btnDatmonan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                modatmon();
+                moban();
             }
         });
     }
 
-    private void modatmon() {
-        Intent datmon = new Intent(this, dat_mon.class);
-        startActivity(datmon);
+    private void moban() {
+        Intent ban = new Intent(this, ban.class);
+        startActivity(ban);
     }
 
 
