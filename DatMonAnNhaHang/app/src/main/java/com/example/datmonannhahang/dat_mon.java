@@ -1,8 +1,12 @@
 package com.example.datmonannhahang;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.DownloadManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,11 +41,11 @@ public class dat_mon extends AppCompatActivity {
 
     public static int selectedTab=1;
     ListView lvMonchinh, lvMonkhaivi, lvLau, lvDouong;
-    String urlGetDataMonChinh = "http://192.168.1.119/nhahang/getDataMonChinh.php";
-    String urlGetDataKhaiVi = "http://192.168.1.119/nhahang/getDataKhaiVi.php";
-    String urlGetDataLau = "http://192.168.1.119/nhahang/getDataLau.php";
-    String urlGetDataDoUong = "http://192.168.1.119/nhahang/getDataDoUong.php";
-    String urlTimKiem = "http://192.168.1.119/nhahang/timkiem.php";
+    String urlGetDataMonChinh = "http://172.17.7.246/nhahang/getDataMonChinh.php";
+    String urlGetDataKhaiVi = "http://172.17.7.246/nhahang/getDataKhaiVi.php";
+    String urlGetDataLau = "http://172.17.7.246/nhahang/getDataLau.php";
+    String urlGetDataDoUong = "http://172.17.7.246/nhahang/getDataDoUong.php";
+    String urlTimKiem = "http://172.17.7.246/nhahang/timkiem.php";
 
 
     public ArrayList<MonChinh> arrayMonChinh, arrayKhaiVi, arrayLau, arrayDoUong;
@@ -74,6 +78,8 @@ public class dat_mon extends AppCompatActivity {
         arrayMonChinh = new ArrayList<>();
         monchinhAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayMonChinh);
         lvMonchinh.setAdapter(monchinhAdapter);
+
+
 
         //Tab2
         arrayKhaiVi = new ArrayList<>();
