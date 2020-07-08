@@ -4,8 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,10 +37,12 @@ public class dat_mon extends AppCompatActivity {
 
     public static int selectedTab=1;
     ListView lvMonchinh, lvMonkhaivi, lvLau, lvDouong;
-    String urlGetDataMonChinh = "http://172.17.4.252/nhahang/getDataMonChinh.php";
-    String urlGetDataKhaiVi = "http://172.17.4.252/nhahang/getDataKhaiVi.php";
-    String urlGetDataLau = "http://172.17.4.252/nhahang/getDataLau.php";
-    String urlGetDataDoUong = "http://172.17.4.252/nhahang/getDataDoUong.php";
+    String urlGetDataMonChinh = "http://192.168.1.119/nhahang/getDataMonChinh.php";
+    String urlGetDataKhaiVi = "http://192.168.1.119/nhahang/getDataKhaiVi.php";
+    String urlGetDataLau = "http://192.168.1.119/nhahang/getDataLau.php";
+    String urlGetDataDoUong = "http://192.168.1.119/nhahang/getDataDoUong.php";
+    String urlTimKiem = "http://192.168.1.119/nhahang/timkiem.php";
+
 
     public ArrayList<MonChinh> arrayMonChinh, arrayKhaiVi, arrayLau, arrayDoUong;
     public MonAnAdapter monchinhAdapter, khaiviAdapter, lauAdapter, douongAdapter;
@@ -49,7 +59,10 @@ public class dat_mon extends AppCompatActivity {
         getdataKhaiVi(urlGetDataKhaiVi);
         getdataLau(urlGetDataLau);
         getdataDoUong(urlGetDataDoUong);
+
+
     }
+
 
     private void addViews() {
         lvMonchinh=findViewById(R.id.lvMonChinh);
@@ -230,4 +243,24 @@ public class dat_mon extends AppCompatActivity {
         );
         requestQueue.add(jsonArrayRequest);
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuItem mnSearch = menu.findItem(R.id.mnSearch);
+        SearchView searchView = (SearchView) mnSearch.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+//               getdataMonChinh(urlTimKiem);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+
 }

@@ -20,7 +20,9 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:freezesText="false"
             android:text="@string/txtMonAn"
+            android:textColor="@color/mauden"
             android:textSize="24sp" />
 
         <TextView
@@ -29,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="@string/txtGia"
+            android:textColor="@color/mauden"
             android:textSize="24sp" />
 
         <ImageView
@@ -46,6 +49,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:textColor="@android:color/holo_red_dark"
             android:textSize="24sp" />
 
         <ImageView

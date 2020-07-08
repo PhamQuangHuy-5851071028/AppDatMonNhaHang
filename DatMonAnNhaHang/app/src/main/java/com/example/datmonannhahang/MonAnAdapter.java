@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -48,7 +50,7 @@ public class MonAnAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-       ViewHolder holder;
+       final ViewHolder holder;
        if(convertView==null){
            holder = new ViewHolder();
            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -59,6 +61,37 @@ public class MonAnAdapter extends BaseAdapter{
            holder.imgCong = (ImageView) convertView.findViewById(R.id.imgTang);
            holder.imgTru = (ImageView) convertView.findViewById(R.id.imgGiam);
            holder.cbChon = (CheckBox) convertView.findViewById(R.id.cbChon);
+
+           holder.cbChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+               @Override
+               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                   if(isChecked)
+                   {
+                       holder.txtSoLuong.setText("1");
+                       holder.imgCong.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               int soluong = Integer.parseInt(holder.txtSoLuong.getText().toString());
+                               soluong++;
+                               holder.txtSoLuong.setText(soluong+"");
+                           }
+                       });
+                       holder.imgTru.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               int soluong = Integer.parseInt(holder.txtSoLuong.getText().toString());
+                               soluong--;
+                               if(soluong<0){
+                                   holder.txtSoLuong.setText("0");
+                               }else
+                               holder.txtSoLuong.setText(soluong+"");
+                           }
+                       });
+                   }
+                   else
+                       holder.txtSoLuong.setText("");
+               }
+           });
            convertView.setTag(holder);
        }else {
            holder = (ViewHolder) convertView.getTag();
@@ -66,6 +99,7 @@ public class MonAnAdapter extends BaseAdapter{
        MonChinh monChinh = monAnList.get(position);
        holder.txtMonAn.setText(monChinh.getTenmon());
        holder.txtGia.setText(monChinh.getGiaban());
+//        holder.cbChon.setChecked(false);
     return convertView;
     }
 }

@@ -41,4 +41,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void thanhtoan(View view) {
+        Intent thanhtoan = new Intent(this, HoaDon.class);
+        startActivity(thanhtoan);
+    }
 }
