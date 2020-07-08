@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/background1"
 
     tools:context=".MainActivity">
 
@@ -55,10 +55,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/corner"
-        android:onClick="thanhtoan"
         android:text="@string/thanhtoan"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
+        android:onClick="thanhtoan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
