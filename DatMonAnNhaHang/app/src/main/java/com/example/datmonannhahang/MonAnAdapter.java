@@ -1,6 +1,7 @@
 package com.example.datmonannhahang;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,9 +49,11 @@ public class MonAnAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
        final ViewHolder holder;
+//        final SharedPreferences preferences;
+//        final SharedPreferences.Editor editor;
        if(convertView==null){
            holder = new ViewHolder();
            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -61,12 +64,18 @@ public class MonAnAdapter extends BaseAdapter{
            holder.imgCong = (ImageView) convertView.findViewById(R.id.imgTang);
            holder.imgTru = (ImageView) convertView.findViewById(R.id.imgGiam);
            holder.cbChon = (CheckBox) convertView.findViewById(R.id.cbChon);
+//           preferences = this.context.getSharedPreferences("Monan", Context.MODE_PRIVATE);
+//           editor = preferences.edit();
 
            holder.cbChon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
                @Override
                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                    if(isChecked)
                    {
+//                       editor.putBoolean(monAnList.get(position).getID()+"",true);
+//                       editor.commit();
+
                        holder.txtSoLuong.setText("1");
                        holder.imgCong.setOnClickListener(new View.OnClickListener() {
                            @Override
@@ -91,11 +100,14 @@ public class MonAnAdapter extends BaseAdapter{
                    else
                        holder.txtSoLuong.setText("");
                }
+
            });
            convertView.setTag(holder);
        }else {
            holder = (ViewHolder) convertView.getTag();
        }
+//        boolean trangthai = preferences.getBoolean(monAnList.get(position).getID()+"",false);
+//       holder.cbChon.setChecked(trangthai);
        MonChinh monChinh = monAnList.get(position);
        holder.txtMonAn.setText(monChinh.getTenmon());
        holder.txtGia.setText(monChinh.getGiaban());
