@@ -20,16 +20,16 @@ public class ban extends AppCompatActivity {
     }
 
     private void addViews() {
-        imgBan1=findViewById(R.id.imgBan1);
-        imgBan2=findViewById(R.id.imgBan2);
-        imgBan3=findViewById(R.id.imgBan3);
-        imgBan4=findViewById(R.id.imgBan4);
-        imgBan5=findViewById(R.id.imgBan5);
-        imgBan6=findViewById(R.id.imgBan6);
-        imgBan7=findViewById(R.id.imgBan7);
-        imgBan8=findViewById(R.id.imgBan8);
-        imgBan9=findViewById(R.id.imgBan9);
-        imgBan10=findViewById(R.id.imgBan10);
+        imgBan1=findViewById(R.id.ban1);
+        imgBan2=findViewById(R.id.ban2);
+        imgBan3=findViewById(R.id.ban3);
+        imgBan4=findViewById(R.id.ban4);
+        imgBan5=findViewById(R.id.ban5);
+        imgBan6=findViewById(R.id.ban6);
+        imgBan7=findViewById(R.id.ban7);
+        imgBan8=findViewById(R.id.ban8);
+        imgBan9=findViewById(R.id.ban9);
+        imgBan10=findViewById(R.id.ban10);
     }
 
     public void chuyenban(View view) {

@@ -1,118 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ban"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".ban">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ban3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="chuyenban"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban1"
+        app:srcCompat="@drawable/group_1" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="87dp"
-            android:gravity="center"
-            android:layout_marginTop="20dp">
+    <ImageView
+        android:id="@+id/ban9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="chuyenban"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban7"
+        app:srcCompat="@drawable/group_10" />
 
-            <ImageView
-                android:id="@+id/imgBan1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_1" />
+    <ImageView
+        android:id="@+id/ban7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="chuyenban"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban5"
+        app:srcCompat="@drawable/group_2" />
 
-            <ImageView
-                android:id="@+id/imgBan2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_2" />
-        </TableRow>
+    <ImageView
+        android:id="@+id/ban2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:onClick="chuyenban"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/group_3" />
 
-        <TableRow
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ban1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="chuyenban"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/group_4" />
 
-            <ImageView
-                android:id="@+id/imgBan3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_3" />
+    <ImageView
+        android:id="@+id/ban4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:onClick="chuyenban"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban2"
+        app:srcCompat="@drawable/group_5" />
 
-            <ImageView
-                android:id="@+id/imgBan4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_4" />
+    <ImageView
+        android:id="@+id/ban10"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:onClick="chuyenban"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban8"
+        app:srcCompat="@drawable/group_6" />
 
-        </TableRow>
+    <ImageView
+        android:id="@+id/ban6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:onClick="chuyenban"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban4"
+        app:srcCompat="@drawable/group_8" />
 
-        <TableRow
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ban5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:onClick="chuyenban"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban3"
+        app:srcCompat="@drawable/group_7" />
 
-            <ImageView
-                android:id="@+id/imgBan5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_5" />
+    <ImageView
+        android:id="@+id/ban8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:onClick="chuyenban"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ban6"
+        app:srcCompat="@drawable/group_9" />
 
-            <ImageView
-                android:id="@+id/imgBan6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_6" />
-        </TableRow>
-
-        <TableRow
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imgBan7"
-                android:onClick="chuyenban"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/group_7" />
-
-            <ImageView
-                android:id="@+id/imgBan8"
-                android:layout_width="112dp"
-                android:layout_height="match_parent"
-                android:onClick="chuyenban"
-                app:srcCompat="@drawable/group_8" />
-        </TableRow>
-
-        <TableRow
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imgBan9"
-                android:onClick="chuyenban"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/group_10" />
-
-            <ImageView
-                android:id="@+id/imgBan10"
-                android:onClick="chuyenban"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/group_9" />
-        </TableRow>
-
-    </TableLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
