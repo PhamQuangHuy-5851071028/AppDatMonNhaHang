@@ -16,10 +16,28 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <SearchView
-        android:id="@+id/svTimKiem"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <SearchView
+            android:id="@+id/svTimKiem"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnLuu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/save"
+            android:text="Lưu"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
 
     <TabHost
         android:id="@+id/host"
@@ -231,4 +249,10 @@
             </FrameLayout>
         </LinearLayout>
     </TabHost>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>

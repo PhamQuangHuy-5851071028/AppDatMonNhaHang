@@ -1,50 +1,35 @@
 package com.example.datmonannhahang;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.app.DownloadManager;
-import android.graphics.drawable.Drawable;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TabHost;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.datmonannhahang.Adapter.BillAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.ref.ReferenceQueue;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
+import Database.Database;
 
 public class dat_mon extends AppCompatActivity {
 
     TabHost tabHost;
+
+
 
     SearchView searchView;
     public static int selectedTab=1;
@@ -61,6 +46,8 @@ public class dat_mon extends AppCompatActivity {
 
     public ArrayList<MonChinh> arrayMonChinh, arrayKhaiVi, arrayLau, arrayDoUong;
     public MonAnAdapter monchinhAdapter, khaiviAdapter, lauAdapter, douongAdapter;
+    public ArrayList<Bill> arrayBill;
+    public BillAdapter billAdapter;
 
 
 
@@ -75,8 +62,6 @@ public class dat_mon extends AppCompatActivity {
         getdataKhaiVi(urlGetDataKhaiVi);
         getdataLau(urlGetDataLau);
         getdataDoUong(urlGetDataDoUong);
-
-
 
     }
 
@@ -136,9 +121,6 @@ public class dat_mon extends AppCompatActivity {
         arrayDoUong = new ArrayList<>();
         douongAdapter = new MonAnAdapter(this, R.layout.list_mon_chinh, arrayDoUong);
         lvDouong.setAdapter(douongAdapter);
-
-
-
 
     }
 
@@ -429,4 +411,6 @@ public class dat_mon extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
 
     }
+
+
 }
