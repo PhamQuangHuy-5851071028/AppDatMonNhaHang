@@ -1,9 +1,14 @@
 package com.example.datmonannhahang;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -51,13 +56,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         imgPhone.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "0977869590", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                xyLyCall();
             }
         });
+    }
+
+    String[] listPermissions=new String[]{Manifest.permission.CALL_PHONE};
+
+    boolean checkPermission(String per){
+        if(ContextCompat.checkSelfPermission(this,per)!= PackageManager.PERMISSION_GRANTED){
+            return false;
+        }
+        return true;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void xyLyCall() {
+        if(!checkPermission(Manifest.permission.CALL_PHONE))
+        {
+            this.requestPermissions(listPermissions,0);
+        }else {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            Uri uri = Uri.parse("tel:" + "0977869590");
+            intent.setData(uri);
+            startActivity(intent);
+        }
+
     }
 
     private void moban() {

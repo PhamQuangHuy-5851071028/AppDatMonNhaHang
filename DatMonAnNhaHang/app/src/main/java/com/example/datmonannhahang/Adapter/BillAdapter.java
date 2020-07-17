@@ -42,7 +42,7 @@ public class BillAdapter extends BaseAdapter {
         return position;
     }
     class ViewHolder {
-        TextView txtMonAn, txtGia, txtSoLuong;
+        TextView txtMonAn, txtGia, txtSoLuong, txtTien;
     }
 
     @Override
@@ -55,6 +55,7 @@ public class BillAdapter extends BaseAdapter {
             holder.txtMonAn = (TextView) convertView.findViewById(R.id.txtMonAn);
             holder.txtGia = (TextView) convertView.findViewById(R.id.txtGia);
             holder.txtSoLuong = (TextView) convertView.findViewById(R.id.txtSoLuong);
+            holder.txtTien = (TextView) convertView.findViewById(R.id.txtTien);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
@@ -63,6 +64,7 @@ public class BillAdapter extends BaseAdapter {
         holder.txtMonAn.setText(bill.getTenMon());
         holder.txtGia.setText(bill.getGiaBan());
         holder.txtSoLuong.setText(bill.getSoLuong()+"");
+        holder.txtTien.setText(bill.getTien()+"");
 
         return convertView;
     }

@@ -5,6 +5,16 @@ public class Bill {
     private String TenMon;
     private String GiaBan;
     private int SoLuong;
+    private int Tien;
+
+
+    public int getTien() {
+        return Tien;
+    }
+
+    public void setTien(int tien) {
+        Tien = tien;
+    }
 
     public int getID() {
         return ID;
@@ -38,11 +48,12 @@ public class Bill {
         SoLuong = soLuong;
     }
 
-    public Bill(int ID, String tenMon, String giaBan, int soLuong) {
+    public Bill(int ID, String tenMon, String giaBan, int soLuong, int tien) {
         this.ID = ID;
         TenMon = tenMon;
         GiaBan = giaBan;
         SoLuong = soLuong;
+        Tien = tien;
     }
 
     public Bill() {
