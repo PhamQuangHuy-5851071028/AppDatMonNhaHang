@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.Serializable;
+
 public class ban extends AppCompatActivity {
 
     ImageView imgBan1, imgBan2, imgBan3, imgBan4, imgBan5, imgBan6, imgBan7, imgBan8, imgBan9,imgBan10;
@@ -17,7 +19,10 @@ public class ban extends AppCompatActivity {
         setContentView(R.layout.activity_ban);
 
         addViews();
+        addEvents();
     }
+
+
 
     private void addViews() {
         imgBan1=findViewById(R.id.ban1);
@@ -31,13 +36,98 @@ public class ban extends AppCompatActivity {
         imgBan9=findViewById(R.id.ban9);
         imgBan10=findViewById(R.id.ban10);
     }
+    private void addEvents() {
+        imgBan1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    public void chuyenban(View view) {
-        modatmon();
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 1);
+                startActivity(datmon);
+            }
+        });
+        imgBan2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 2);
+                startActivity(datmon);
+            }
+        });
+        imgBan3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 3);
+                startActivity(datmon);
+            }
+        });
+        imgBan4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 4);
+                startActivity(datmon);
+            }
+        });
+        imgBan5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 5);
+                startActivity(datmon);
+            }
+        });
+        imgBan6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 6);
+                startActivity(datmon);
+            }
+        });
+        imgBan7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 7);
+                startActivity(datmon);
+            }
+        });
+        imgBan8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 8);
+                startActivity(datmon);
+            }
+        });
+        imgBan9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 9);
+                startActivity(datmon);
+            }
+        });
+        imgBan10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent datmon = new Intent(ban.this, dat_mon.class);
+                datmon.putExtra("ban", 10);
+                startActivity(datmon);
+            }
+        });
     }
 
-    private void modatmon() {
-        Intent datmon = new Intent(this, dat_mon.class);
-        startActivity(datmon);
-    }
+
 }

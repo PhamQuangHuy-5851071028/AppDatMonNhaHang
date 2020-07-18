@@ -5,15 +5,14 @@ public class Bill {
     private String TenMon;
     private String GiaBan;
     private int SoLuong;
-    private int Tien;
+    private int Ban;
 
-
-    public int getTien() {
-        return Tien;
+    public int getBan() {
+        return Ban;
     }
 
-    public void setTien(int tien) {
-        Tien = tien;
+    public void setBan(int ban) {
+        Ban = ban;
     }
 
     public int getID() {
@@ -48,12 +47,12 @@ public class Bill {
         SoLuong = soLuong;
     }
 
-    public Bill(int ID, String tenMon, String giaBan, int soLuong, int tien) {
+    public Bill(int ID, String tenMon, String giaBan, int soLuong, int ban) {
         this.ID = ID;
         TenMon = tenMon;
         GiaBan = giaBan;
         SoLuong = soLuong;
-        Tien = tien;
+        Ban = ban;
     }
 
     public Bill() {

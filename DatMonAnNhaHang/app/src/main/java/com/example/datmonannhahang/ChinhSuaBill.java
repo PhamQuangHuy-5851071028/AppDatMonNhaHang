@@ -2,15 +2,12 @@ package com.example.datmonannhahang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,18 +18,18 @@ import android.widget.Toast;
 
 import com.example.datmonannhahang.Adapter.BillAdapter;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import Database.Database;
 
-public class HoaDon extends AppCompatActivity {
+public class ChinhSuaBill extends AppCompatActivity {
+
 
     TextView txtTongTien;
     ListView lvBill;
     Spinner spSoBan;
     Database database;
+    Button btnThanhToan;
 
     public ArrayList<Bill> arrayBill;
     public BillAdapter billAdapter;
@@ -40,7 +37,7 @@ public class HoaDon extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hoa_don);
+        setContentView(R.layout.activity_chinh_sua_bill);
 
         addViews();
         addEvents();
@@ -49,32 +46,43 @@ public class HoaDon extends AppCompatActivity {
 
     }
 
-
-
     private void addEvents() {
+
         String []soban ={"1","2","3","4","5","6","7","8","9","10"};
         ArrayAdapter<String> sobanAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, soban);
         sobanAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spSoBan.setAdapter(sobanAdapter);
 
-
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent thanhtoan = new Intent(ChinhSuaBill.this, HoaDon.class);
+                startActivity(thanhtoan);
+            }
+        });
     }
 
     private void addViews() {
         txtTongTien=findViewById(R.id.txtTongTien);
         lvBill=findViewById(R.id.lvBill);
         spSoBan=findViewById(R.id.spSoBan);
+        btnThanhToan=findViewById(R.id.btnThanhToan);
 
         arrayBill = new ArrayList<>();
         billAdapter = new BillAdapter(this, R.layout.list_bill, arrayBill);
         lvBill.setAdapter(billAdapter);
     }
     private void PrepareDB() {
-        //Create Database
+
         database = new Database(this, "bill.sqlite", null, 1);
-        //Create Table
+//        database.QueryData("Use database bill.sqlite");
+//        //Create Table
         database.QueryData("CREATE TABLE IF NOT EXISTS HoaDon(ID INTEGER PRIMARY KEY, " +
                 "TenMon VARCHAR(200), " + "GiaBan VARCHAR(200), " + "SoLuong INTEGER, "+" Ban INTEGER)");
+
+//        database.QueryData("DELETE TABLE HoaDon");
+
+//        database.QueryData("INSERT INTO HoaDon VALUES(5, 'Xương heo hầm măng', '75000', 1, 75000)");
 
     }
     private void getData() {
@@ -88,35 +96,35 @@ public class HoaDon extends AppCompatActivity {
             int Ban = c.getInt(4);
             arrayBill.add(new Bill(ID, TenMon, GiaBan, SoLuong, Ban));
         }
-        int TongTien=0;
-        for (Bill item: arrayBill
-             ) {
-            TongTien+=Integer.parseInt(item.getGiaBan())*item.getSoLuong();
-
-        }
-        txtTongTien.setText(TongTien+"");
         billAdapter.notifyDataSetChanged();
     }
+    public void openDialogEditTask(final int ID, int SoLuong){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_dialog_edit);
 
-    public void Xuathoadon(View view) {
-        //Tạo đối tượng
-        AlertDialog.Builder b = new AlertDialog.Builder(this);
-        //Thiết lập tiêu đề
-        b.setTitle("Xác nhận hóa đơn");
-        b.setIcon(R.drawable.icon);
-        b.setMessage("Tổng tiền hóa đơn của bạn là " + txtTongTien.getText().toString() + " đồng" +"\nCảm ơn và hẹn gặp lại");
-        // Nút Ok
-        b.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                database.QueryData("DELETE FROM HoaDon");
-                Intent thanhtoan = new Intent(HoaDon.this, MainActivity.class);
-                startActivity(thanhtoan);
-                finish();
+        final EditText edtSoLuong = dialog.findViewById(R.id.edtSL);
+        Button btnEditTask = dialog.findViewById(R.id.btnEdit);
+        Button btnCancel = dialog.findViewById(R.id.btnCancelEdit);
+
+        edtSoLuong.setText(SoLuong);
+
+        btnEditTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newSL = edtSoLuong.getText().toString();
+                database.QueryData("UPDATE HoaDon SET SoLuong = '" + newSL + "' WHERE ID = " + ID);
+                Toast.makeText(ChinhSuaBill.this, "Chỉnh sửa hoàn tất", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                getData();
             }
         });
-        AlertDialog al = b.create();
-        //Hiển thị
-        al.show();
-    }
 
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 }

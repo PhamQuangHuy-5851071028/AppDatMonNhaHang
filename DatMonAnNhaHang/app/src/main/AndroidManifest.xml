@@ -3,7 +3,7 @@
     package="com.example.datmonannhahang">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HoaDon"></activity>
+        <activity android:name=".ChinhSuaBill"></activity>
+        <activity android:name=".HoaDon" />
         <activity android:name=".ban" />
         <activity android:name=".dat_mon" />
         <activity

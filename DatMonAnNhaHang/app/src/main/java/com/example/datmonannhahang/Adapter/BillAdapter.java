@@ -9,8 +9,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.datmonannhahang.Bill;
+import com.example.datmonannhahang.ChinhSuaBill;
 import com.example.datmonannhahang.R;
 
 import java.util.List;
@@ -42,7 +44,7 @@ public class BillAdapter extends BaseAdapter {
         return position;
     }
     class ViewHolder {
-        TextView txtMonAn, txtGia, txtSoLuong, txtTien;
+        TextView txtMonAn, txtGia, txtSoLuong, txtBan;
     }
 
     @Override
@@ -55,16 +57,25 @@ public class BillAdapter extends BaseAdapter {
             holder.txtMonAn = (TextView) convertView.findViewById(R.id.txtMonAn);
             holder.txtGia = (TextView) convertView.findViewById(R.id.txtGia);
             holder.txtSoLuong = (TextView) convertView.findViewById(R.id.txtSoLuong);
-            holder.txtTien = (TextView) convertView.findViewById(R.id.txtTien);
+            holder.txtBan=(TextView) convertView.findViewById(R.id.txtban);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
-        Bill bill = billList.get(position);
+
+        final Bill bill = billList.get(position);
         holder.txtMonAn.setText(bill.getTenMon());
         holder.txtGia.setText(bill.getGiaBan());
         holder.txtSoLuong.setText(bill.getSoLuong()+"");
-        holder.txtTien.setText(bill.getTien()+"");
+        holder.txtBan.setText(bill.getBan()+"");
+
+//        holder.txtSoLuong.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//
+//                return false;
+//            }
+//        });
 
         return convertView;
     }

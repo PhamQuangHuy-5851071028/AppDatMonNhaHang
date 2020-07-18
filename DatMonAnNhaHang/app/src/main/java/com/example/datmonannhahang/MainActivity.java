@@ -97,4 +97,9 @@ public class MainActivity extends AppCompatActivity {
         Intent thanhtoan = new Intent(this, HoaDon.class);
         startActivity(thanhtoan);
     }
+
+    public void SuaMonAn(View view) {
+        Intent ChinhSuaBill = new Intent(this, ChinhSuaBill.class);
+        startActivity(ChinhSuaBill);
+    }
 }

@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="16dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban1"
         app:srcCompat="@drawable/group_1" />
@@ -24,7 +24,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="16dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban7"
         app:srcCompat="@drawable/group_10" />
@@ -35,7 +35,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="16dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban5"
         app:srcCompat="@drawable/group_2" />
@@ -46,7 +46,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/group_3" />
@@ -57,7 +57,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="16dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/group_4" />
@@ -68,7 +68,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban2"
         app:srcCompat="@drawable/group_5" />
@@ -79,7 +79,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban8"
         app:srcCompat="@drawable/group_6" />
@@ -90,7 +90,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban4"
         app:srcCompat="@drawable/group_8" />
@@ -101,7 +101,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="16dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban3"
         app:srcCompat="@drawable/group_7" />
@@ -112,7 +112,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
-        android:onClick="chuyenban"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ban6"
         app:srcCompat="@drawable/group_9" />

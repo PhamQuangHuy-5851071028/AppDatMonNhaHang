@@ -2,8 +2,11 @@ package com.example.datmonannhahang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TabHost;
@@ -31,7 +34,9 @@ public class dat_mon extends AppCompatActivity {
 
 
 
+
     SearchView searchView;
+    Button btnLuu;
     public static int selectedTab=1;
     ListView lvMonchinh, lvMonkhaivi, lvLau, lvDouong;
     String urlGetDataMonChinh = "https://appdatmonan.000webhostapp.com/KetNoi/getDataMonChinh.php";
@@ -58,12 +63,15 @@ public class dat_mon extends AppCompatActivity {
         showTabHost();
         addViews();
         addEvents();
+        getdataban();
         getdataMonChinh(urlGetDataMonChinh);
         getdataKhaiVi(urlGetDataKhaiVi);
         getdataLau(urlGetDataLau);
         getdataDoUong(urlGetDataDoUong);
 
     }
+
+
 
     private void addEvents() {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -92,6 +100,14 @@ public class dat_mon extends AppCompatActivity {
                 return false;
             }
         });
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chuyenchinhsuaban = new Intent(dat_mon.this, ChinhSuaBill.class);
+                startActivity(chuyenchinhsuaban);
+            }
+        });
+
     }
 
 
@@ -101,6 +117,7 @@ public class dat_mon extends AppCompatActivity {
         lvLau=findViewById(R.id.lvLau);
         lvDouong=findViewById(R.id.lvDoUong);
         searchView=findViewById(R.id.svTimKiem);
+        btnLuu=findViewById(R.id.btnLuu);
 
         //Tab1
         arrayMonChinh = new ArrayList<>();
@@ -412,6 +429,14 @@ public class dat_mon extends AppCompatActivity {
 
     }
 
+    public final int getdataban() {
+        //Intent intent = getIntent();
+        monchinhAdapter.sb=getIntent().getIntExtra("ban", 0);
+        int soban= getIntent().getIntExtra("ban", 0);
+
+        Toast.makeText(this, "Đã chọn bàn: "+soban, Toast.LENGTH_SHORT).show();
+        return soban;
+    }
 
 
 }

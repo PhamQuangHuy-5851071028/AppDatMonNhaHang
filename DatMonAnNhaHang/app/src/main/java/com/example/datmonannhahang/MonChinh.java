@@ -11,6 +11,23 @@ public class MonChinh {
         this.giaban = giaban;
     }
 
+    private int soluong;
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    public MonChinh(int ID, String tenmon, String giaban, int soluong) {
+        this.ID = ID;
+        this.tenmon = tenmon;
+        this.giaban = giaban;
+        this.soluong = soluong;
+    }
+
     public MonChinh() {
     }
 
