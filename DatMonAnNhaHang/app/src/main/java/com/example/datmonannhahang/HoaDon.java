@@ -6,11 +6,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +32,8 @@ import Database.Database;
 
 public class HoaDon extends AppCompatActivity {
 
-    TextView txtTongTien;
+    TextView txtTongTien, txtSoBan;
     ListView lvBill;
-    Spinner spSoBan;
     Database database;
 
     public ArrayList<Bill> arrayBill;
@@ -43,31 +45,19 @@ public class HoaDon extends AppCompatActivity {
         setContentView(R.layout.activity_hoa_don);
 
         addViews();
-        addEvents();
         PrepareDB();
         getData();
-
-    }
-
-
-
-    private void addEvents() {
-        String []soban ={"1","2","3","4","5","6","7","8","9","10"};
-        ArrayAdapter<String> sobanAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, soban);
-        sobanAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spSoBan.setAdapter(sobanAdapter);
-
-
     }
 
     private void addViews() {
         txtTongTien=findViewById(R.id.txtTongTien);
         lvBill=findViewById(R.id.lvBill);
-        spSoBan=findViewById(R.id.spSoBan);
+        txtSoBan=findViewById(R.id.txtsoban);
 
         arrayBill = new ArrayList<>();
         billAdapter = new BillAdapter(this, R.layout.list_bill, arrayBill);
         lvBill.setAdapter(billAdapter);
+
     }
     private void PrepareDB() {
         //Create Database
@@ -75,6 +65,7 @@ public class HoaDon extends AppCompatActivity {
         //Create Table
         database.QueryData("CREATE TABLE IF NOT EXISTS HoaDon(ID INTEGER PRIMARY KEY, " +
                 "TenMon VARCHAR(200), " + "GiaBan VARCHAR(200), " + "SoLuong INTEGER, "+" Ban INTEGER)");
+
 
     }
     private void getData() {
@@ -87,6 +78,7 @@ public class HoaDon extends AppCompatActivity {
             int SoLuong = c.getInt(3);
             int Ban = c.getInt(4);
             arrayBill.add(new Bill(ID, TenMon, GiaBan, SoLuong, Ban));
+
         }
         int TongTien=0;
         for (Bill item: arrayBill
@@ -95,9 +87,15 @@ public class HoaDon extends AppCompatActivity {
 
         }
         txtTongTien.setText(TongTien+"");
+        SharedPreferences sharedPreferences=this.getSharedPreferences("huy",MODE_PRIVATE);
+        int soban=sharedPreferences.getInt("soban",0);
+        txtSoBan.setText(""+soban);
         billAdapter.notifyDataSetChanged();
-    }
 
+    }
+//    public void setTxtSoBan(int soban){
+//        txtSoBan.setText(soban+"");
+//    }
     public void Xuathoadon(View view) {
         //Tạo đối tượng
         AlertDialog.Builder b = new AlertDialog.Builder(this);

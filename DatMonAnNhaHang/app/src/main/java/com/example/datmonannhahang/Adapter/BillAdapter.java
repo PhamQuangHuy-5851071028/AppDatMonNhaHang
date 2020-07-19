@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.datmonannhahang.Bill;
 import com.example.datmonannhahang.ChinhSuaBill;
+import com.example.datmonannhahang.HoaDon;
 import com.example.datmonannhahang.R;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class BillAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private List<Bill> billList;
+
 
     public BillAdapter(Context context, int layout, List<Bill> billList) {
         this.context = context;
@@ -49,6 +51,7 @@ public class BillAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         final ViewHolder holder;
         if(convertView==null){
             holder = new ViewHolder();
@@ -64,18 +67,11 @@ public class BillAdapter extends BaseAdapter {
         }
 
         final Bill bill = billList.get(position);
+
         holder.txtMonAn.setText(bill.getTenMon());
         holder.txtGia.setText(bill.getGiaBan());
         holder.txtSoLuong.setText(bill.getSoLuong()+"");
         holder.txtBan.setText(bill.getBan()+"");
-
-//        holder.txtSoLuong.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//
-//                return false;
-//            }
-//        });
 
         return convertView;
     }

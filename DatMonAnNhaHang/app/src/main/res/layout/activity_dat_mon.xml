@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:orientation="vertical">
 
     <TextView
@@ -71,7 +72,7 @@
 
                         <TextView
                             android:id="@+id/txt1"
-                            android:layout_width="155dp"
+                            android:layout_width="172dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Tên món"
@@ -81,7 +82,7 @@
 
                         <TextView
                             android:id="@+id/txt2"
-                            android:layout_width="132dp"
+                            android:layout_width="121dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Giá bán"
@@ -91,10 +92,10 @@
 
                         <TextView
                             android:id="@+id/txt3"
-                            android:layout_width="match_parent"
+                            android:layout_width="45dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Số lượng"
+                            android:text="SL"
                             android:textColor="@color/maucam"
                             android:textSize="18sp"
                             android:textStyle="bold|italic" />
@@ -142,7 +143,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Số lượng"
+                            android:text="SL"
                             android:textColor="@color/maucam"
                             android:textSize="18sp"
                             android:textStyle="bold|italic" />
@@ -189,7 +190,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Số lượng"
+                            android:text="SL"
                             android:textColor="@color/maucam"
                             android:textSize="18sp"
                             android:textStyle="bold|italic" />
@@ -235,7 +236,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Số lượng"
+                            android:text="SL"
                             android:textColor="@color/maucam"
                             android:textSize="18sp"
                             android:textStyle="bold|italic" />

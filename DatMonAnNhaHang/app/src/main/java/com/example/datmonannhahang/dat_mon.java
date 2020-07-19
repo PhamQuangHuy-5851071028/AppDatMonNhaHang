@@ -3,8 +3,10 @@ package com.example.datmonannhahang;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -31,7 +33,7 @@ import Database.Database;
 public class dat_mon extends AppCompatActivity {
 
     TabHost tabHost;
-
+    int soban;
 
 
 
@@ -432,8 +434,16 @@ public class dat_mon extends AppCompatActivity {
     public final int getdataban() {
         //Intent intent = getIntent();
         monchinhAdapter.sb=getIntent().getIntExtra("ban", 0);
-        int soban= getIntent().getIntExtra("ban", 0);
+        khaiviAdapter.sb=getIntent().getIntExtra("ban", 0);
+        douongAdapter.sb=getIntent().getIntExtra("ban", 0);
+        lauAdapter.sb=getIntent().getIntExtra("ban", 0);
 
+        soban= getIntent().getIntExtra("ban", 0);
+        Log.e(">> So ban: ", soban+"" );
+        SharedPreferences sharedPreferences=this.getSharedPreferences("huy",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("soban",soban);
+        editor.apply();
         Toast.makeText(this, "Đã chọn bàn: "+soban, Toast.LENGTH_SHORT).show();
         return soban;
     }
