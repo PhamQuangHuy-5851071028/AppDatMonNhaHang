@@ -101,5 +101,6 @@ public class MainActivity extends AppCompatActivity {
     public void SuaMonAn(View view) {
         Intent ChinhSuaBill = new Intent(this, ChinhSuaBill.class);
         startActivity(ChinhSuaBill);
+
     }
 }

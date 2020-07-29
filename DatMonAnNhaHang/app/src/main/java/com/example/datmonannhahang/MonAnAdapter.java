@@ -112,7 +112,8 @@ public class MonAnAdapter extends BaseAdapter{
                                    String query = "SELECT * FROM HoaDon WHERE ID= "+ monan.getID();
                                    Cursor cursor = database.GetData(query);
                                    if(cursor.getCount()>0){
-                                       database.QueryData("UPDATE HoaDon SET SoLuong = "+Integer.parseInt(holder.txtSoLuong.getText().toString())+" WHERE ID= "+monan.getID());
+                                       database.QueryData("UPDATE HoaDon SET SoLuong = "+Integer.parseInt(holder.txtSoLuong.getText().toString())+
+                                               " WHERE ID= "+monan.getID());
                                    }
                                    else{
                                        database.QueryData("INSERT INTO HoaDon VALUES("+monan.getID()+", '"+monan.getTenmon()+"'," +
@@ -142,4 +143,5 @@ public class MonAnAdapter extends BaseAdapter{
        holder.txtGia.setText(monChinh.getGiaban());
     return convertView;
     }
+
 }
